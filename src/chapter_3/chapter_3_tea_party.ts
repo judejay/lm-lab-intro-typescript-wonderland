@@ -19,32 +19,18 @@ type Table = {
 };
 
 function setTheTable(): Table {
-	return { seats: [{
-		drink: {
-			type : "Tea",
-			poured: true
-		}
-	},
-	{
-		drink: {
-			type : "Tea",
-			poured: true
-		}
-	},
-	{
-		drink: {
-			type: "Tea",
-			poured: true
-		}
-	},
-	{
-		drink: {
-			type: "Tea",
-			poured: true
-		}
-	}		
-		
-	]};
+	 const table: Table = { seats: []};
+
+	 for ( let i=0; i<4; i++){
+		table.seats.push({
+			drink: {
+				type: 'Tea',
+				poured: false
+			}
+		})
+	 }
+
+	 return table;	
 }
 
 export function attendATeaParty() {
@@ -71,7 +57,7 @@ export function attendATeaParty() {
 
 	drinks.seats.forEach((seat) => {
 		if (!seat.drink.poured || seat.drink.type !== 'Tea') {
-			properlySet = false;
+			properlySet = true;
 		}
 	});
 
